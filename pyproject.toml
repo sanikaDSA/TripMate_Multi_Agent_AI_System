@@ -15,3 +15,6 @@ tripmate-multi-agent-ai-system = "tripmate_multi_agent_ai_system:main"
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.pyright]
+extraPaths = ["."]

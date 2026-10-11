@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate AI — Plan Your Perfect Trip</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Ambient Glow & Curved Flight Paths Layer -->
+    <div class="page-bg">
+        <!-- Radial glow backdrops -->
+        <div class="glow-orb glow-top-center"></div>
+        <div class="glow-orb glow-card-center"></div>
+        <div class="glow-orb glow-bottom-left"></div>
+        <div class="glow-orb glow-bottom-right"></div>
+
+        <!-- Dot Grid Pattern Overlay -->
+        <div class="dot-grid-pattern"></div>
+
+        <!-- Curved Flight Paths with Airplane Icons (matching reference) -->
+        <svg class="flight-paths-svg" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin slice">
+            <defs>
+                <linearGradient id="flightTrailLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#a855f7" stop-opacity="0.6" />
+                    <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#c084fc" stop-opacity="0.05" />
+                </linearGradient>
+                <linearGradient id="flightTrailRight" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#c084fc" stop-opacity="0.6" />
+                    <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.3" />
+                    <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.05" />
+                </linearGradient>
+                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+            </defs>
+
+            <!-- Left Curved Flight Orbit Path -->
+            <path class="flight-arc arc-left"
+                d="M 120 180 C 60 320, 160 520, 360 480"
+                stroke="url(#flightTrailLeft)" stroke-width="1.6" stroke-dasharray="4 6" fill="none" />
+
+            <!-- Right Curved Flight Orbit Path -->
+            <path class="flight-arc arc-right"
+                d="M 1320 220 C 1220 380, 1260 580, 1020 540"
+                stroke="url(#flightTrailRight)" stroke-width="1.6" stroke-dasharray="4 6" fill="none" />
+        </svg>
+
+        <!-- Floating Airplanes on the flight trails -->
+        <div class="floating-plane plane-left">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+        </div>
+
+        <div class="floating-plane plane-right">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+        </div>
+
+        <!-- Floating Destination Orb (top right visual detail like reference) -->
+        <div class="floating-dest-orb">
+            <div class="dest-orb-inner">
+                <span>✈️</span>
+            </div>
+            <div class="orb-ring"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Header (matching reference layout) -->
+    <header class="top-navbar">
+        <div class="nav-container">
+            <!-- Brand Logo -->
+            <div class="brand-logo">
+                <span class="logo-plane">✈</span>
+                <span class="logo-text">TripMate<span class="logo-accent">.ai</span></span>
+            </div>
+
+            <!-- Central Pill Menu Navigation -->
+            <nav class="nav-pill-menu">
+                <a href="#planner" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#features" class="nav-link">Profile</a>
+            </nav>
+
+            <!-- Right Controls -->
+            <div class="nav-actions">
+                <div class="currency-pill">
+                    <span class="flag-icon">🌐</span>
+                    <span class="curr-text">USD</span>
+                    <span class="arrow-down">▾</span>
+                </div>
+                <a href="#planner" class="contact-pill-btn">
+                    <span>Contact Us</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container" id="planner">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="badge">
+                ✈️ TripMate AI — A Multi-Agent Travel Planner with LangGraph
+            </div>
+
+            <h1 class="hero-title">
+                Plan Your Perfect Trip with AI
+            </h1>
+
+            <p class="hero-subtitle">
+                Search flights, discover hotels, and generate a complete travel itinerary using a multi-agent LangGraph system.
+            </p>
+
+            <!-- Mode Selector Tabs (matching reference Flight | Hotel | Car pills) -->
+            <div class="category-tabs">
+                <button class="tab-item active" type="button">
+                    <span class="tab-icon">✈</span>
+                    <span>Flight</span>
+                </button>
+                <button class="tab-item" type="button" onclick="setPrompt('Find the best luxury and budget hotels in Tokyo for 7 days.')">
+                    <span class="tab-icon">🏨</span>
+                    <span>Hotel</span>
+                </button>
+                <button class="tab-item" type="button" onclick="setPrompt('Recommend local transport, car rentals and routes for a 7 days Japan trip.')">
+                    <span class="tab-icon">🚗</span>
+                    <span>Car</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Main Travel Planner Glass Card -->
+        <section class="planner-card">
+
+            <!-- Card Sub-bar (Trip Type Indicators matching reference) -->
+            <div class="trip-type-bar">
+                <label class="trip-radio active">
+                    <span class="radio-dot"></span>
+                    <span>On Way</span>
+                </label>
+                <label class="trip-radio">
+                    <span class="radio-dot"></span>
+                    <span>Round</span>
+                </label>
+                <label class="trip-radio">
+                    <span class="radio-dot"></span>
+                    <span>Multi Way</span>
+                </label>
+            </div>
+
+            <div class="card-header">
+                <div>
+                    <h2>Where do you want to go?</h2>
+                    <p>
+                        Example: Plan a complete 7 days Japan trip from Bangladesh under 2 lakhs.
+                    </p>
+                </div>
+
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    Online
+                </div>
+            </div>
+
+            <!-- Interactive Flight Search Input Area -->
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <textarea id="userInput"
+                        placeholder="Plan a complete 7 days Japan trip including flights, hotels and sightseeing under 2 lakhs..."></textarea>
+                </div>
+
+                <button id="sendBtn" onclick="sendMessage()">
+                    <span class="search-icon">🔍</span>
+                    <span id="btnText">Generate Plan</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <!-- Quick Travel Prompts (Chips) -->
+            <div class="quick-prompts">
+                <button
+                    onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
+                    Japan Trip
+                </button>
+
+                <button
+                    onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
+                    Dubai Trip
+                </button>
+
+                <button
+                    onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
+                    Thailand Trip
+                </button>
+
+                <button onclick="setPrompt('Give me all country flight info.')">
+                    Global Flights
+                </button>
+            </div>
+
+        </section>
+
+        <!-- Error Alert Box -->
+        <section id="errorBox" class="error-box hidden"></section>
+
+        <!-- AI Generated Result Section -->
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-header">
+                <div class="result-title-group">
+                    <div class="result-badge">AI Intelligence</div>
+                    <h2>Your AI Travel Plan</h2>
+                    <p id="threadInfo">Thread ID: -</p>
+                </div>
+
+                <div class="result-actions">
+                    <button class="copy-btn" onclick="copyResult()">
+                        <span class="btn-icon">📋</span>
+                        <span>Copy</span>
+                    </button>
+
+                    <button class="download-btn" onclick="downloadPDF()">
+                        <span class="btn-icon">📥</span>
+                        <span>Download PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="pdfContent" class="pdf-content">
+                <h1 class="pdf-title">AI Travel Plan</h1>
+                <div id="resultBox" class="result-box"></div>
+            </div>
+
+        </section>
+
+        <!-- Bottom Feature Highlights (matching the 3 circular icons in reference) -->
+        <section class="feature-highlights" id="about">
+            <div class="highlight-item">
+                <div class="highlight-circle">
+                    <span class="circle-icon">🔍</span>
+                    <div class="circle-glow"></div>
+                </div>
+                <h3>Intelligent Search</h3>
+                <p>Real-time flights and live web search across destinations worldwide.</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-circle">
+                    <span class="circle-icon">💰</span>
+                    <div class="circle-glow"></div>
+                </div>
+                <h3>Budget Optimization</h3>
+                <p>Tailored recommendations optimized for your exact budget and stay length.</p>
+            </div>
+
+            <div class="highlight-item">
+                <div class="highlight-circle">
+                    <span class="circle-icon">🌐</span>
+                    <div class="circle-glow"></div>
+                </div>
+                <h3>Multi-Agent Sync</h3>
+                <p>LangGraph multi-agent workflow syncing flights, hotels, and itineraries.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="features">
+        <div class="footer-content">
+            <p class="footer-tagline">TripMate AI — Autonomous Travel Planning Powered by Multi-Agent AI</p>
+            <p class="footer-tech">Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily and AviationStack</p>
+        </div>
+    </footer>
+
+    <!-- Markdown Renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- PDF Download Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Your Custom JS -->
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
